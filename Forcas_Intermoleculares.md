@@ -19,4 +19,29 @@ em que $E_{\rm X}$ é a energia total do sistema X, computado usando nossa teori
 
 Vamos considerar primeiramente um exemplo extremamente simples de dois átomos interagentes de Hélio e calcular $E_{\rm int}$ em algumas distâncias interatômicas distintas $R$. Você usará o pacote gratuito Psi4 para calcular as energias total que você precisa para realizar a subtração. Quando fizermos estes calculos para uma série de valores de $R$, você será capaz de construir as famosas *curva de energia potencial* - o gráfico de $E_{\rm int}(R)$ em função de $R$.
 
-BELEZa, mas como você escolherá o método de estrutura eletrônica para calcular $E_{\rm A-B}$, $E_{\rm A}$, and $E_{\rm B}$? Vamos começar pela escolha mais simples e tentar o método Hartree-Fock (HF). Caso o HF não seja acurado o suficiente, tentaremos um método mais sofisticado como o *coupled-cluster* com excitações simples, duplas e triplas perturbativas - CCSD(T). Se você nunca ouviu falar sobre CCSD(T) antes, vamos apenas dizer que **(1)** geralmente é muito preciso (muitos se referem a este método como *gold standard* da teoria de estrutura eletrônica) e **(2)** é computacionalmente muito pesado para moléculas maiores - de certa forma até inviável. Com relação ao conjunto de funções de base, vamos escolher a base de Dunning aug-cc-pVTZ que deve estar OK para HF e CCSD(T).
+BELEZA, mas como você escolherá o método de estrutura eletrônica para calcular $E_{\rm A-B}$, $E_{\rm A}$, and $E_{\rm B}$? Vamos começar pela escolha mais simples e tentar o método Hartree-Fock (HF). Caso o HF não seja acurado o suficiente, tentaremos um método mais sofisticado como o *coupled-cluster* com excitações simples, duplas e triplas perturbativas - CCSD(T). Se você nunca ouviu falar sobre CCSD(T) antes, vamos apenas dizer que **(1)** geralmente é muito preciso (muitos se referem a este método como *gold standard* da teoria de estrutura eletrônica) e **(2)** é computacionalmente muito pesado para moléculas maiores - de certa forma até inviável. Com relação ao conjunto de funções de base, vamos escolher a base de Dunning aug-cc-pVTZ que deve estar OK para HF e CCSD(T).
+
+## Dímero de Hélio
+
+Aqui está um script python que emprega o Psi4 para computar a curva de energia potencial para dois átomos de Hélio empregando uma abordagem supramolecular. Primeiramente vamos importar algumas bibliotecas importantes
+``` 
+import time
+import numpy as np
+import scipy
+from scipy.optimize import *
+np.set_printoptions(precision=5, linewidth=200, threshold=2000, suppress=True)
+import psi4
+import matplotlib.pyplot as plt
+
+# Set Psi4 & NumPy Memory Options
+psi4.set_memory('2 GB')
+psi4.core.set_output_file('output.dat', False)
+
+numpy_memory = 2
+
+psi4.set_options({'basis': 'aug-cc-pVTZ',
+              'e_convergence': 1e-10,
+              'd_convergence': 1e-10,
+              'INTS_TOLERANCE': 1e-15})
+
+```
