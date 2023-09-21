@@ -1,26 +1,21 @@
 
-## Forças Intermoleculares 
+## Introdução 
 Esta atividade de laboratório foi pensada para auxiliar os estudantes matriculados no minicurso "Brincando com Forças Intermoleculares" da Universidade de Brasília. Este minicurso consiste em uma série de laboratórios computacionais sobre forças intermoleculares fracas e o calculo/interpretação da energia de interação entre duas moléculas.
 A energia de interação pode ser decomposta em contribuições fisicamente significativas (eletrostática, indução, dispersão e troca) usando a teoria da perturbação adaptada à simetria (SAPT). Neste exercício, calcularemos as energias de interação completas e sua decomposição SAPT usando os procedimentos do pacote de software Psi4, processando e analisando os dados com NumPy e Matplotlib.
 
-Learning Objectives: 
-1. Recognize and appreciate the ubiquity and diversity of intermolecular interactions.
-2. Compare and contrast the supermolecular and perturbative methods of calculating interaction energy.
-3. Analyze and interpret the electrostatic, induction, dispersion, and exchange SAPT contributions at different intermolecular separations.
+Objetivos de Aprendizagem:
+1. Reconhecer e apreciar a ubiquidade e diversidade das interações intermoleculares.
+2. Comparar e contrastar os métodos supramoleculares e perturbativos para calcular as energias de interação.
+3. Analisar e interpretar as contribuições SAPT na forma eletrostática, indução dispersão e troca em diferentes separações intermoleculares.
 
-Author: Konrad Patkowski, Auburn University (patkowsk@auburn.edu; ORCID: 0000-0002-4468-207X)
+# Forças Intermoleculares Fracas 
 
-Copyright: Psi4Education Project, 2020
+Nesta atividade, você irpa examinar as algumas proprieades das interações fracas entre moléculas. Como as subunidades moleculares não estão conectados por nenhuma ligação covalente ou iônica, nos referimos usualmente as interações intermoleculares como in *interações não-covalentes*. Suponha que queremos calcular a energia de interação entre a molécula A e a molécula B para uma certa geometria do complexo A-B (óbviamente, esta energia de interação depende de quão distante as moléculas estão e como elas estão orientadas). A forma mais simples de realizar esta tarefa seria através da subtração (esta abordadem é chamada de *abordagem supramolecular*, é a mais empregada por químicos teóricos):
 
-# Weak intermolecular interactions 
 
-In this activity, you will examine some properties of weak interactions between molecules. As the molecular subunits are not connected by any covalent (or ionic) bonds, we often use the term *noncovalent interactions*. Suppose we want to calculate the interaction energy between molecule A and molecule B for a certain geometry of the A-B complex (obviously, this interaction energy depends on how far apart the molecules are and how they are oriented). The simplest way of doing so is by subtraction (in the so-called *supermolecular approach*):
+$E_{\rm int}=E_{\rm A-B}-E_{\rm A}-E_{\rm B}$
 
-\begin{equation}
-E_{\rm int}=E_{\rm A-B}-E_{\rm A}-E_{\rm B}
-\end{equation}
-
-where $E_{\rm X}$ is the total energy of system X, computed using our favorite electronic structure theory and basis set. A negative value of $E_{\rm int}$ means that A and B have a lower energy when they are together than when they are apart, so they do form a weakly bound complex that might be stable at least at very low temperatures. A positive value of $E_{\rm int}$ means that the A-B complex is unbound - it is energetically favorable for A and B to go their separate ways. 
+em que $E_{\rm X}$ é a energia total do sistema X, computado usando nossa teoria favorita de estrutura eletrônica e um certo conjunto de funções de base. Um valor negativo de  $E_{\rm int}$ indica que a molécula A e B tem energia mais baixa quando estão juntas naquela configuração do que quando elas estão infinitamente separadas, então eles formam um complexo ligado que pode ser estável pelo menos em temperaturas muito baixas. Um valor positivo de $E_{\rm int}$ indica que o complexo A-B não é ligado - é energeticamente mais favorável se A e B se separarem (repulsões). 
 
 Let's consider a simple example of two interacting helium atoms and calculate $E_{\rm int}$ at a few different interatomic distances $R$. You will use Psi4 to calculate the total energies that you need to perform subtraction. When you do so for a couple different $R$, you will be able to sketch the *potential energy curve* - the graph of $E_{\rm int}(R)$ as a function of $R$.
 
