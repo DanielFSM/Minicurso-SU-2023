@@ -139,4 +139,8 @@ plt.legend(loc='upper right')
 plt.show()
 plt.savefig('pec_He_dimer.png',dpi=300)
 ```
+*Questionamentos* 
+1. Qual curva faz mais sentido físico?
+2. Por que o Hélio só forma fase líquida em temperaturas muito baixas $T_{ebu}=4.2K$?
+3. Quando aumentamos o tamanho das moléculas interagentes, o método CCSD(T) rapidamente se torna computacionalmente muito caro e os cálculos podem levar semanas em vez de minutos. Se torna especialmente caro o cálculo do termo $E_{\rm A-B}$ porque A-B tem mais elétrons que A ou B separadamente. Um "colega" sugere usar CCSD(T) somente para os termos mais fáceis $E_{\rm A}$ e $E_{\rm B}$ e então subtraí-los do termo $E_{\rm A-B}$ calculados com um método mais "barato" como HF. Por que esta é uma ideia ruim?
 
