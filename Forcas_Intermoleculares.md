@@ -25,6 +25,7 @@ BELEZA, mas como você escolherá o método de estrutura eletrônica para calcul
 
 Aqui está um script python que emprega o Psi4 para computar a curva de energia potencial para dois átomos de Hélio empregando uma abordagem supramolecular. Primeiramente vamos importar algumas bibliotecas importantes
 ``` 
+import sys; sys.path.append("/usr/lib/x86_64-linux-gnu/") 
 import time
 import numpy as np
 import scipy
@@ -34,7 +35,7 @@ import psi4
 import matplotlib.pyplot as plt
 
 # Set Psi4 & NumPy Memory Options
-psi4.set_memory('2 GB')
+psi4.set_memory('1 GB')
 psi4.core.set_output_file('output.dat', False)
 
 numpy_memory = 2
@@ -45,3 +46,97 @@ psi4.set_options({'basis': 'aug-cc-pVTZ',
               'INTS_TOLERANCE': 1e-15})
 
 ```
+Agora iremos coletar alguns pontos de dados para construir o gráfico da função $E_{\rm int}(R)$. Desta forma, vamos construir uma lista de distâncias $R$ entre os átomos de Hélio para o qual iremos realizar os cálculos (escolhi 11 distâncias baseados em testes preliminares). Para cada distânica, precisamos lembrar de três valores ($E_{\rm A-B}$, $E_{\rm A}$, and $E_{\rm B}$). Para este propósito, iremos preparar dois $11\times 3$ arrays do NumPy (_array é uma estrutura multidimensional que nos permite armazenar dados na memória do nosso computador_) para guardar os resultados dos cálculos HF e CCSD(T). 
+```
+distances = [4.0, 4.5, 5.0, 5.5, 6.0, 6.5, 7.0, 7.5, 8.0, 8.5, 9.0, 9.5, 10.0]
+ehf = np.zeros((11,3))
+eccsdt = np.zeros((11,3))
+```
+Estamos quase prontos para obter alguns números! =D Porém, surge uma questão: como vamos dizer para o Psi4 se queremos $E_{\rm A-B}$, $E_{\rm A}$, ou $E_{\rm B}$? 
+Precisamos definir três geometrias diferentes. Para a energia $E_{\rm A-B}$ são necessários dois átomos de Hélio separados $R$ unidades um do outro - podemos posicionar um átomo em $(0,0,0)$ e o outro em $(0,0,R)$. As outras duas geometrias envolvem na verdade apenas um átomo de Hélio, com um núcleo e dois elétrons, e um *átomo ghost* no lugar do outro átomo. Um átomo ghost não possui núcleo tampouco elétrons, mas ele carrega as funções de base de um átomo verdadeiro - precisamos calcular todas as energias com o mesmo conjunto de funções de base, com funções centradas em $(0,0,0)$ e $(0,0,R)$, para evitar o chamado *erro de superposição de base*. No Psi4, a sintaxe `Gh(X)` denota um átomo ghost onde as funções de base onde o átomo tipo X está localizado. 
+
+Empregando átomos fantasmas, podemos agora facilmente definir as geometrias para o cálculo das energias $E_{\rm A}$ e $E_{\rm B}$. Esta etapa pode demorar alguns minutos dependendo da arquiterura de seu computador. No meu computador pessoal consegui realizar os cálculos em todas as distâcnais em menos de 5 minutos.
+```
+hf_r = {}
+hf_ra = {}
+hf_rb = {}
+
+cssdt_r = {}
+cssdt_ra = {}
+cssdt_rb = {}
+
+for i in distances:
+  dimer = psi4.geometry("""
+  He 0.0 0.0 0.0
+  --
+  He 0.0 0.0 """+str(i)+"""
+  units bohr
+  symmetry c1
+  """)
+
+  psi4.energy('ccsd(t)')   #HF will be calculated along the way
+  
+  # ehf[i,0] = psi4.variable('HF TOTAL ENERGY')
+  # eccsdt[i,0] = psi4.variable('CCSD(T) TOTAL ENERGY')
+  hf_r[i] = (psi4.variable('HF TOTAL ENERGY'))
+  cssdt_r[i] = (psi4.variable('CCSD(T) TOTAL ENERGY'))
+
+  psi4.core.clean()
+
+  monomerA = psi4.geometry("""
+  He 0.0 0.0 0.0
+  --
+  Gh(He) 0.0 0.0 """+str(i)+"""
+  units bohr
+  symmetry c1
+  """)
+
+  psi4.energy('ccsd(t)')   #HF will be calculated along the way
+
+  # ehf[i,1] = psi4.variable('HF TOTAL ENERGY')
+  # eccsdt[i,1] = psi4.variable('CCSD(T) TOTAL ENERGY')
+  hf_ra[i] = (psi4.variable('HF TOTAL ENERGY'))
+  cssdt_ra[i] = (psi4.variable('CCSD(T) TOTAL ENERGY'))
+
+  psi4.core.clean()
+
+  monomerB = psi4.geometry("""
+  Gh(He) 0.0 0.0 0.0
+  --
+  He 0.0 0.0 """+str(i)+"""
+  units bohr
+  symmetry c1
+  """)
+
+  psi4.energy('ccsd(t)')   #HF will be calculated along the way
+
+  # ehf[i,2] = psi4.variable('HF TOTAL ENERGY')
+  # eccsdt[i,2] = psi4.variable('CCSD(T) TOTAL ENERGY')
+  hf_rb[i] = (psi4.variable('HF TOTAL ENERGY'))
+  cssdt_rb[i] = (psi4.variable('CCSD(T) TOTAL ENERGY'))
+
+  psi4.core.clean()
+```
+Completamos os cálculos das energias $E_{\rm A-B}$, $E_{\rm A}$, ou $E_{\rm B}$ para todas as 11 distâncias $R$. Vamos agora realizar as subtrações e conversões de unidades atômicas para kcal/mol para formar NumPy arrays com os valores de $E_{\rm int}(R)$ para cada método e construir um gráfico resultante apresentando as curvas de energia potencial usando a biblioteca do matplotlib. Na linha ```plt.savefig('pec.png',dpi=300)``` você pode salvar o gráfico com o nome desejado com extensão png.
+```
+einthf = []
+eintccsdt = []
+for i,j in hf_r.items():
+    einthf.append((hf_r[i] - (hf_ra[i] + hf_rb[i])) * 627.509)
+    eintccsdt.append((cssdt_r[i] - (cssdt_ra[i] + cssdt_rb[i])) * 627.509)
+
+
+print ('HF PEC', einthf)
+print ('CCSD(T) PEC', eintccsdt)
+
+plt.plot(distances,einthf,'r+',linestyle='-',label='HF')
+plt.plot(distances,eintccsdt,'bo',linestyle='-',label='CCSD(T)')
+plt.hlines(0.0,4.0,10.0)
+plt.xlabel('Distancia (Angstrom)')
+plt.ylabel('Energia (kcal/mol)')
+plt.ylim(-0.05,0.05)
+plt.legend(loc='upper right')
+plt.show()
+plt.savefig('pec_He_dimer.png',dpi=300)
+```
+
