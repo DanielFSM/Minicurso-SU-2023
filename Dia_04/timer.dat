@@ -1,0 +1,254 @@
+
+Host: DFSM
+
+Timers On : Fri Sep 29 08:01:53 2023
+Timers Off: Fri Sep 29 08:01:54 2023
+
+Wall Time:        1.21 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+
+--------------------------------------------------------------------------------------
+
+**************************************************************************************
+
+Host: DFSM
+
+Timers On : Fri Sep 29 11:07:56 2023
+Timers Off: Fri Sep 29 11:07:56 2023
+
+Wall Time:        0.50 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+
+--------------------------------------------------------------------------------------
+
+**************************************************************************************
+
+Host: DFSM
+
+Timers On : Fri Sep 29 11:08:15 2023
+Timers Off: Fri Sep 29 11:08:15 2023
+
+Wall Time:        0.32 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+
+--------------------------------------------------------------------------------------
+
+**************************************************************************************
+
+Host: DFSM
+
+Timers On : Fri Sep 29 11:09:28 2023
+Timers Off: Fri Sep 29 11:09:29 2023
+
+Wall Time:        0.31 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+
+--------------------------------------------------------------------------------------
+
+**************************************************************************************
+
+Host: DFSM
+
+Timers On : Fri Sep 29 11:09:55 2023
+Timers Off: Fri Sep 29 11:10:38 2023
+
+Wall Time:       42.99 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+FISAPT: Dimer SCF                   :     53.350u     98.200s      8.365w      1 calls
+JK: (A|mn)                          :      5.650u      0.117s      3.464w      2 calls
+JK: (A|Q)^-1/2                      :      3.400u      4.267s      0.803w      2 calls
+JK: (Q|mn)                          :      9.400u     12.733s      0.847w      2 calls
+HF: Form core H                     :      0.283u      0.600s      0.035w      1 calls
+HF: Form S/X                        :      0.150u      0.183s      0.014w      1 calls
+HF: Guess                           :      0.633u      1.350s      0.075w      1 calls
+SAD Guess                           :      0.600u      1.317s      0.072w      1 calls
+HF: Form G                          :     38.867u     81.917s      4.552w     13 calls
+JK: D                               :      0.283u      0.600s      0.035w     52 calls
+JK: USO2AO                          :      0.017u      0.067s      0.003w     52 calls
+JK: JK                              :    213.750u    399.517s     23.157w     52 calls
+JK: J                               :     27.683u      4.200s      1.208w     52 calls
+JK: J1                              :     13.917u      2.250s      0.612w     69 calls
+JK: J2                              :     13.533u      1.833s      0.587w     69 calls
+JK: K                               :    185.667u    394.900s     21.918w     52 calls
+JK: K1                              :    175.917u    386.817s     21.254w    100 calls
+JK: K2                              :      8.817u      6.800s      0.586w     69 calls
+JK: AO2USO                          :      0.000u      0.000s      0.000w     52 calls
+HF: Form F                          :      0.050u      0.083s      0.005w     13 calls
+HF: Form D                          :      0.000u      0.100s      0.004w     13 calls
+HF: DIIS                            :      0.533u      0.617s      0.044w     12 calls
+DIISManager::add_entry              :      0.333u      0.600s      0.034w     30 calls
+DIISManager::extrapolate            :      0.317u      0.367s      0.025w     30 calls
+bMatrix setup                       :      0.217u      0.150s      0.014w     30 calls
+bMatrix pseudoinverse               :      0.000u      0.033s      0.001w     30 calls
+New vector                          :      0.100u      0.167s      0.010w     30 calls
+HF: Form C                          :      1.617u      2.483s      0.155w     12 calls
+FISAPT: Setup                       :     13.367u     14.050s      3.282w      1 calls
+FISAPT: Monomer SCF                 :     49.517u     85.817s      5.115w      1 calls
+FISAPT: Subsys E                    :      4.850u      6.483s      0.427w      1 calls
+FISAPT:SAPT:elst                    :      0.017u      0.033s      0.002w      1 calls
+FISAPT:SAPT:exch                    :     13.367u     25.517s      1.466w      1 calls
+FISAPT:SAPT:ind                     :    110.883u    209.583s     12.131w      1 calls
+FISAPT:FSAPT:loc                    :      0.633u      1.450s      0.080w      1 calls
+FISAPT:FSAPT:elst                   :     13.267u     13.233s      3.010w      1 calls
+DFH: initialize()                   :      6.533u      3.183s      3.441w      2 calls
+DFH: sparsity prep                  :      0.633u      1.700s      0.097w      2 calls
+DFH: AO Construction                :      5.250u      0.267s      3.267w      2 calls
+DFH: transform()                    :     55.117u     64.400s      4.879w      4 calls
+DFH: Total Workflow                 :     48.167u     49.417s      3.703w     52 calls
+DFH: Total Transform                :     44.183u     44.250s      3.349w     32 calls
+DFH: 1st Contraction                :     29.283u      7.617s      1.397w     12 calls
+DFH: 2nd Contraction                :     14.900u     36.633s      1.952w     20 calls
+DFH: MO to disk                     :      1.667u      4.083s      0.219w     20 calls
+DFH: Direct Contractions            :      9.133u     15.833s      1.291w      4 calls
+FISAPT:FSAPT:exch                   :     16.300u     27.633s      1.664w      1 calls
+FISAPT:FSAPT:ind                    :     11.950u     16.767s      1.093w      1 calls
+FISAPT:FSAPT:disp                   :     30.750u     24.700s      5.657w      1 calls
+
+--------------------------------------------------------------------------------------
+FISAPT: Dimer SCF                   :     53.350u     98.200s      8.365w      1 calls
+| JK: (A|mn)                        :      2.800u      0.067s      1.720w      1 calls
+| JK: (A|Q)^-1/2                    :      1.700u      2.250s      0.402w      1 calls
+| JK: (Q|mn)                        :      4.450u      5.750s      0.389w      1 calls
+| HF: Form core H                   :      0.283u      0.600s      0.035w      1 calls
+| HF: Form S/X                      :      0.150u      0.183s      0.014w      1 calls
+| HF: Guess                         :      0.633u      1.350s      0.075w      1 calls
+| | SAD Guess                       :      0.600u      1.317s      0.072w      1 calls
+| HF: Form G                        :     38.867u     81.917s      4.552w     13 calls
+| | JK: D                           :      0.017u      0.100s      0.004w     13 calls
+| | JK: USO2AO                      :      0.017u      0.017s      0.000w     13 calls
+| | JK: JK                          :     38.817u     81.750s      4.544w     13 calls
+| | | JK: J                         :      4.117u      1.717s      0.222w     13 calls
+| | | | JK: J1                      :      1.983u      1.033s      0.115w     13 calls
+| | | | JK: J2                      :      2.117u      0.667s      0.106w     13 calls
+| | | JK: K                         :     34.650u     79.933s      4.316w     13 calls
+| | | | JK: K1                      :     31.467u     78.133s      4.133w     13 calls
+| | | | JK: K2                      :      3.150u      1.767s      0.182w     13 calls
+| | JK: AO2USO                      :      0.000u      0.000s      0.000w     13 calls
+| HF: Form F                        :      0.050u      0.083s      0.005w     13 calls
+| HF: Form D                        :      0.000u      0.100s      0.004w     13 calls
+| HF: DIIS                          :      0.533u      0.617s      0.044w     12 calls
+| | DIISManager::add_entry          :      0.233u      0.250s      0.017w     12 calls
+| | DIISManager::extrapolate        :      0.217u      0.133s      0.013w     12 calls
+| | | bMatrix setup                 :      0.133u      0.050s      0.008w     12 calls
+| | | bMatrix pseudoinverse         :      0.000u      0.017s      0.000w     12 calls
+| | | New vector                    :      0.083u      0.067s      0.005w     12 calls
+| HF: Form C                        :      1.617u      2.483s      0.155w     12 calls
+FISAPT: Setup                       :     13.367u     14.050s      3.282w      1 calls
+| JK: (A|mn)                        :      2.850u      0.050s      1.743w      1 calls
+| JK: (A|Q)^-1/2                    :      1.700u      2.017s      0.401w      1 calls
+| JK: (Q|mn)                        :      4.950u      6.983s      0.458w      1 calls
+| JK: D                             :      0.000u      0.000s      0.000w      1 calls
+| JK: USO2AO                        :      0.000u      0.000s      0.000w      1 calls
+| JK: JK                            :      2.250u      2.650s      0.185w      1 calls
+| | JK: J                           :      0.367u      0.200s      0.023w      1 calls
+| | | JK: J1                        :      0.133u      0.200s      0.014w      1 calls
+| | | JK: J2                        :      0.233u      0.000s      0.009w      1 calls
+| | JK: K                           :      1.867u      2.433s      0.161w      1 calls
+| | | JK: K1                        :      1.833u      2.350s      0.157w      1 calls
+| | | JK: K2                        :      0.017u      0.033s      0.002w      1 calls
+| JK: AO2USO                        :      0.000u      0.000s      0.000w      1 calls
+FISAPT: Monomer SCF                 :     49.517u     85.817s      5.115w      1 calls
+| JK: D                             :      0.050u      0.183s      0.008w     20 calls
+| JK: USO2AO                        :      0.000u      0.000s      0.001w     20 calls
+| JK: JK                            :     44.817u     75.933s      4.546w     20 calls
+| | JK: J                           :      8.017u      1.100s      0.344w     20 calls
+| | | JK: J1                        :      4.283u      0.400s      0.176w     20 calls
+| | | JK: J2                        :      3.683u      0.667s      0.166w     20 calls
+| | JK: K                           :     36.650u     74.667s      4.190w     20 calls
+| | | JK: K1                        :     33.850u     71.783s      3.978w     20 calls
+| | | JK: K2                        :      2.000u      1.783s      0.143w     20 calls
+| JK: AO2USO                        :      0.000u      0.000s      0.000w     20 calls
+| DIISManager::add_entry            :      0.100u      0.350s      0.018w     18 calls
+| DIISManager::extrapolate          :      0.100u      0.233s      0.012w     18 calls
+| | bMatrix setup                   :      0.083u      0.100s      0.006w     18 calls
+| | bMatrix pseudoinverse           :      0.000u      0.017s      0.001w     18 calls
+| | New vector                      :      0.017u      0.100s      0.006w     18 calls
+FISAPT: Subsys E                    :      4.850u      6.483s      0.427w      1 calls
+| JK: D                             :      0.000u      0.000s      0.000w      1 calls
+| JK: USO2AO                        :      0.000u      0.000s      0.000w      1 calls
+| JK: JK                            :      4.783u      6.317s      0.417w      1 calls
+| | JK: J                           :      0.950u      0.017s      0.036w      1 calls
+| | | JK: J1                        :      0.500u      0.000s      0.019w      2 calls
+| | | JK: J2                        :      0.433u      0.000s      0.017w      2 calls
+| | JK: K                           :      3.817u      6.300s      0.380w      1 calls
+| | | JK: K1                        :      3.400u      6.200s      0.360w      2 calls
+| | | JK: K2                        :      0.367u      0.000s      0.014w      2 calls
+| JK: AO2USO                        :      0.000u      0.000s      0.000w      1 calls
+FISAPT:SAPT:elst                    :      0.017u      0.033s      0.002w      1 calls
+FISAPT:SAPT:exch                    :     13.367u     25.517s      1.466w      1 calls
+| JK: D                             :      0.017u      0.000s      0.000w      3 calls
+| JK: USO2AO                        :      0.000u      0.000s      0.000w      3 calls
+| JK: JK                            :     13.183u     25.350s      1.453w      3 calls
+| | JK: J                           :      1.800u      0.033s      0.071w      3 calls
+| | | JK: J1                        :      0.883u      0.000s      0.035w      4 calls
+| | | JK: J2                        :      0.900u      0.033s      0.035w      4 calls
+| | JK: K                           :     11.333u     25.300s      1.381w      3 calls
+| | | JK: K1                        :     11.017u     25.017s      1.359w      7 calls
+| | | JK: K2                        :      0.300u      0.283s      0.022w      4 calls
+| JK: AO2USO                        :      0.000u      0.000s      0.000w      3 calls
+FISAPT:SAPT:ind                     :    110.883u    209.583s     12.131w      1 calls
+| JK: D                             :      0.200u      0.317s      0.022w     14 calls
+| JK: USO2AO                        :      0.000u      0.050s      0.001w     14 calls
+| JK: JK                            :    109.900u    207.517s     12.012w     14 calls
+| | JK: J                           :     12.433u      1.133s      0.512w     14 calls
+| | | JK: J1                        :      6.133u      0.617s      0.254w     29 calls
+| | | JK: J2                        :      6.167u      0.467s      0.254w     29 calls
+| | JK: K                           :     97.350u    206.267s     11.490w     14 calls
+| | | JK: K1                        :     94.350u    203.333s     11.267w     57 calls
+| | | JK: K2                        :      2.983u      2.933s      0.223w     29 calls
+| JK: AO2USO                        :      0.000u      0.000s      0.000w     14 calls
+FISAPT:FSAPT:loc                    :      0.633u      1.450s      0.080w      1 calls
+FISAPT:FSAPT:elst                   :     13.267u     13.233s      3.010w      1 calls
+| DFH: initialize()                 :      3.633u      1.533s      1.962w      1 calls
+| | DFH: sparsity prep              :      0.333u      0.700s      0.048w      1 calls
+| | DFH: AO Construction            :      2.983u      0.133s      1.869w      1 calls
+| DFH: transform()                  :      8.067u      8.433s      0.861w      1 calls
+| | DFH: Total Workflow             :      6.317u      5.867s      0.458w      4 calls
+| | | DFH: Total Transform          :      6.317u      5.867s      0.458w      4 calls
+| | | | DFH: 1st Contraction        :      6.217u      5.733s      0.449w      2 calls
+| | | | DFH: 2nd Contraction        :      0.100u      0.133s      0.009w      2 calls
+| | DFH: MO to disk                 :      0.033u      0.033s      0.003w      2 calls
+| | DFH: Direct Contractions        :      1.717u      2.517s      0.396w      1 calls
+| | | DFH: Total Workflow           :      0.017u      0.050s      0.003w      2 calls
+FISAPT:FSAPT:exch                   :     16.300u     27.633s      1.664w      1 calls
+| DFH: transform()                  :     16.117u     27.450s      1.650w      1 calls
+| | DFH: Total Workflow             :     14.917u     24.750s      1.504w      6 calls
+| | | DFH: Total Transform          :     14.917u     24.750s      1.504w      6 calls
+| | | | DFH: 1st Contraction        :      5.333u      0.183s      0.209w      2 calls
+| | | | DFH: 2nd Contraction        :      9.583u     24.567s      1.294w      4 calls
+| | DFH: MO to disk                 :      0.267u      0.567s      0.031w      4 calls
+| | DFH: Direct Contractions        :      0.883u      2.033s      0.110w      1 calls
+| | | DFH: Total Workflow           :      0.733u      1.167s      0.073w      4 calls
+FISAPT:FSAPT:ind                    :     11.950u     16.767s      1.093w      1 calls
+| DFH: transform()                  :      7.400u      6.867s      0.549w      1 calls
+| | DFH: Total Workflow             :      5.417u      1.517s      0.261w      6 calls
+| | | DFH: Total Transform          :      5.417u      1.517s      0.261w      6 calls
+| | | | DFH: 1st Contraction        :      5.083u      0.483s      0.209w      2 calls
+| | | | DFH: 2nd Contraction        :      0.333u      1.033s      0.052w      4 calls
+| | DFH: MO to disk                 :      0.267u      0.867s      0.043w      4 calls
+| | DFH: Direct Contractions        :      1.650u      4.383s      0.239w      1 calls
+| | | DFH: Total Workflow           :      1.233u      3.283s      0.180w      4 calls
+FISAPT:FSAPT:disp                   :     30.750u     24.700s      5.657w      1 calls
+| DFH: initialize()                 :      2.900u      1.650s      1.479w      1 calls
+| | DFH: sparsity prep              :      0.300u      1.000s      0.049w      1 calls
+| | DFH: AO Construction            :      2.267u      0.133s      1.398w      1 calls
+| DFH: transform()                  :     23.533u     21.650s      1.819w      1 calls
+| | DFH: Total Workflow             :     17.533u     12.133s      1.126w     16 calls
+| | | DFH: Total Transform          :     17.533u     12.117s      1.126w     16 calls
+| | | | DFH: 1st Contraction        :     12.650u      1.217s      0.529w      6 calls
+| | | | DFH: 2nd Contraction        :      4.883u     10.900s      0.597w     10 calls
+| | DFH: MO to disk                 :      1.100u      2.617s      0.143w     10 calls
+| | DFH: Direct Contractions        :      4.883u      6.900s      0.546w      1 calls
+| | | DFH: Total Workflow           :      2.000u      0.650s      0.099w     10 calls
+
+**************************************************************************************
